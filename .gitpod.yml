@@ -6,8 +6,10 @@ tasks:
     command: echo 'Started Terminal 1'
     
   - name: Terminal 2
-    before: docker-compose up -d server-2
-    init: gp sync-done server_2
+    before: gp sync-await server_1
+    init: >
+      docker-compose up -d server-2 &&
+      gp sync-done server_2
     command: echo 'Started Terminal 2'
     openMode: split-right
 
