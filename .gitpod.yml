@@ -1,0 +1,26 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: Terminal 1
+    before: docker-compose up server-1 -d
+    init: gp sync-done server_1
+    command: echo 'Started Terminal 1'
+    
+  - name: Terminal 2
+    before: docker-compose up server-2 -d
+    init: gp sync-done server_2
+    command: echo 'Started Terminal 2'
+    openMode: split-right
+
+  - name: Terminal 3
+    init: >
+      gp sync-await server_1 &&
+      gp sync-await server_2
+    command: |
+      curl -X POST http://0.0.0.0:8080/sum/ -H 'Content-Type: application/json' -d '{"a":1,"b":4}'
+    openMode: split-right
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 8080
+    onOpen: ignore
+  - port: 8081
+    onOpen: ignore
