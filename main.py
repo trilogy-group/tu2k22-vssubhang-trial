@@ -11,4 +11,4 @@ async def root():
 async def welcome_message(name: str = "Stranger"):
     if not len(name):
         name = "Stranger"
-    return "Welcome " + name + "!"
+    return {"message": "Welcome " + name + "!"}
