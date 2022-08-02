@@ -1,12 +1,12 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - name: Terminal 1
-    before: docker-compose up server-1 -d
+    before: docker-compose up -d server-1
     init: gp sync-done server_1
     command: echo 'Started Terminal 1'
     
   - name: Terminal 2
-    before: docker-compose up server-2 -d
+    before: docker-compose up -d server-2
     init: gp sync-done server_2
     command: echo 'Started Terminal 2'
     openMode: split-right
