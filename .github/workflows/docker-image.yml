@@ -3,14 +3,14 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - docker-compose.yml
-      - server-1/Dockerfile
-      - server-2/Dockerfile
+      - 'docker-compose.yml'
+      - 'server-1/Dockerfile'
+      - 'server-2/Dockerfile'
   pull_request:
     paths:
-      - docker-compose.yml
-      - server-1/Dockerfile
-      - server-2/Dockerfile
+      - 'docker-compose.yml'
+      - 'server-1/Dockerfile'
+      - 'server-2/Dockerfile'
     branches: [ "main" ]
 
 jobs:
