@@ -3,14 +3,14 @@ tasks:
   - name: Terminal 1
     before: docker-compose up -d server-1
     init: gp sync-done server_1
-    command: echo 'Started Terminal 1'
+    command: docker-compose logs -f -t server-1
     
   - name: Terminal 2
     before: gp sync-await server_1
     init: >
       docker-compose up -d server-2 &&
       gp sync-done server_2
-    command: echo 'Started Terminal 2'
+    command: docker-compose logs -f -t server-2
     openMode: split-right
 
   - name: Terminal 3
