@@ -16,4 +16,4 @@ List of Docker commands used
 4. docker start -a server-1
 5. docker stop server-1
 6. docker-compose up
-7. docker-compose down
+7. docker-compose down 
