@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  server-1:
+    build: ./server-1/.
+    ports:
+      - "8080:80"
+    volumes:
+      - ./server-1:/app
+  server-2:
+    build: ./server-2/.
+    volumes:
+      - ./server-2:/app

@@ -1,0 +1,25 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'docker-compose.yml'
+      - 'server-1/Dockerfile'
+      - 'server-2/Dockerfile'
+  pull_request:
+    paths:
+      - 'docker-compose.yml'
+      - 'server-1/Dockerfile'
+      - 'server-2/Dockerfile'
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker-compose up -d
